@@ -1,3 +1,4 @@
+import './css/main.css';
 import React from 'react';
 import Temperatures from './components/Temperatures.jsx';
 
