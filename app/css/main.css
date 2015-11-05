@@ -2,3 +2,22 @@ body {
   background: #D6D6D6;
 }
 
+#myConverterDiv{
+          
+     background:#B03B76;
+     text-align: center;
+     font-size: 20px;
+     color: gold;
+     
+     border-radius: 60px;
+     border: 5px solid black;
+     padding: 40px;
+
+     position:absolute;
+     width:400px;
+     height:30px;
+     top:50%;
+     left:50%;
+     margin:-100px 0 0 -250px;
+	
+}
