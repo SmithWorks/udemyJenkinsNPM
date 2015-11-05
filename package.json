@@ -1,0 +1,37 @@
+{
+  "name": "tempconverter",
+  "version": "1.0.0",
+  "description": "React ecosystem starter app - fahrenheit to celcius",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-jest": "^5.3.0",
+    "babel-loader": "^5.3.2",
+    "babel-plugin-react-transform": "^1.1.1",
+    "css-loader": "^0.15.5",
+    "html-webpack-plugin": "^1.6.0",
+    "i": "^0.3.3",
+    "jest-cli": "^0.6.0",
+    "npm": "^3.3.4",
+    "react-transform-hmr": "^1.0.1",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.10.1",
+    "webpack-merge": "^0.1.2"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "jest": {
+  "modulePathIgnorePatterns": ["package.json"]
+}
+}
