@@ -5,7 +5,7 @@ describe('fahrenheitToCelsius() 50f..10c', () => {
 	it('returns a number', () => {
 		var tempConverter = require('../app/components/TempConverterUtil.jsx');
 		var celcius = tempConverter.fahrenheitToCelsius(50);
-		expect(celcius).toBe(10);
+		expect(celcius).toBe(1);
 	});
 
 });
