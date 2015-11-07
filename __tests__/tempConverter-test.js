@@ -1,10 +1,10 @@
 jest.dontMock('../app/components/TempConverterUtil.jsx');
 
 
-describe('fahrenheitToCelsius() 50f..10c', () => {
-	it('returns a number', () => {
-		var tempConverter = require('../app/components/TempConverterUtil.jsx');
-		var celcius = tempConverter.fahrenheitToCelsius(50);
+describe('fahrenheitToCelsius fn happy path input:50', () => {
+	it('returns happy path result 10', () => {
+		let tempConverter = require('../app/components/TempConverterUtil.jsx');
+		let celcius = tempConverter.fahrenheitToCelsius(50);
 		expect(celcius).toBe(1);
 	});
 
