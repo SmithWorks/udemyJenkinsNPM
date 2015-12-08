@@ -1,11 +1,12 @@
 import React from 'react';
 import TempConverterUtil from "./TempConverterUtil.jsx";
 
+const NAN_MSG = "Numbers only";
 export default class Temperatures extends React.Component {
    constructor(props){
    	super(props);
    	this.state = {inputFahrenheitValue: '', 
-   				  inputCelciusValue: '' };
+   				        inputCelciusValue: '' };
    }
 
   render() {
@@ -27,8 +28,8 @@ export default class Temperatures extends React.Component {
         <input id="celciusID"  type="text" 
         	   value={this.state.inputCelciusValue}
         	   onChange= {this.handleCelciusInputChange.bind(this) }
-        	   //onBlur={this.handleCelciusLostFocus.bind(this)}
-        	   //onClick={ () => this.handleReset()}
+        	   onBlur={this.handleCelciusLostFocus.bind(this)}
+        	   onClick={ () => this.handleReset()}
         	   size="12" maxLength="3"/>
 
         </div> 
@@ -38,11 +39,38 @@ export default class Temperatures extends React.Component {
 handleFahInputChange(event){
     //this method makes it so the element can update its own value
     this.setState({inputFahrenheitValue: event.target.value});
+
+    if (event.target.value.trim() == ''){
+      this.handleReset(event);
+    } 
+    else if ( isNaN(event.target.value) ){
+      this.setState({inputFahrenheitValue: NAN_MSG}); 
+      setTimeout(() => {
+        this.handleReset(event) 
+      }, 750); 
+    }
+    else {
+       var computedCelcius = TempConverterUtil.fahrenheitToCelsius(event.target.value);
+       this.setState({inputCelciusValue: computedCelcius});
+    }
   }
 
 handleCelciusInputChange(event){
   //this method makes it so the element can update its own value
     this.setState({inputCelciusValue: event.target.value});
+    if (event.target.value.trim() == '') {
+      this.handleReset(event);
+    } 
+    else if ( isNaN(event.target.value) ){
+      this.setState({inputCelciusValue: NAN_MSG}); 
+      setTimeout(() => {
+        this.handleReset(event) 
+      }, 750);  
+    }
+    else {
+       var computedFah = TempConverterUtil.fahrenheitToCelsius(event.target.value);
+       this.setState({inputFahrenheitValue: computedFah});
+    }
   }  
 
 
@@ -50,28 +78,6 @@ handleFahKeyPress(event){
     if(event.charCode == 13){
             this.handleFahLostFocus(event);
         }
-  }
-
-handleFahLostFocus(event){
-    const NAN_MSG = "Numbers only";
-    
-    if (event.target.value == ''){
-      //don't do anything, just proceed to celcius
-      //this.setState({inputFahrenheitValue: NAN_MSG});  
-      //event.target.focus();
-    } 
-    else if ( isNaN(event.target.value) 
-          && NAN_MSG === event.target.value){
-              this.handleReset(event) 
-    }
-    else if ( isNaN(event.target.value) ){
-      this.setState({inputFahrenheitValue: NAN_MSG});  
-      event.target.focus(); 
-    }
-    else {
-  	   var computedCelcius = TempConverterUtil.fahrenheitToCelsius(event.target.value);
-  	   this.setState({inputCelciusValue: computedCelcius});
-    }
   }
 
 handleReset(event){
