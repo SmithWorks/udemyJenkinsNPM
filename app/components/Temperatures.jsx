@@ -73,13 +73,6 @@ handleCelciusInputChange(event){
     }
   }  
 
-
-handleFahKeyPress(event){
-    if(event.charCode == 13){
-            this.handleFahLostFocus(event);
-        }
-  }
-
 handleReset(event){
  	this.setState({inputFahrenheitValue: '', 
    				  inputCelciusValue: '' });
