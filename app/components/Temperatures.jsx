@@ -19,8 +19,7 @@ export default class Temperatures extends React.Component {
         	   onChange= {this.handleFahInputChange.bind(this) }
         	   onBlur={this.handleFahLostFocus.bind(this)}
         	   onClick={ () => this.handleReset()}
-             onKeyPress={ this.handleFahKeyPress.bind(this) }
-        	   size="12" maxLength="3"
+             size="12" maxLength="3"
              data-toggle="tooltip" title="Enter fahrenheit value"/>
 
         <span>&nbsp;</span>
