@@ -2,6 +2,7 @@ import React from 'react';
 import TempConverterUtil from "./TempConverterUtil.jsx";
 
 const NAN_MSG = "Numbers only";
+
 export default class Temperatures extends React.Component {
    constructor(props){
    	super(props);
@@ -22,19 +23,19 @@ export default class Temperatures extends React.Component {
              data-toggle="tooltip" title="Enter fahrenheit value"/>
 
         <span>&nbsp;</span>
+
         <span>Celcius:</span>
         <input id="celciusID"  type="text" 
         	   value={this.state.inputCelciusValue}
         	   onChange= {this.handleCelciusInputChange.bind(this) }
-        	    onClick={ () => this.handleReset()}
+        	   onClick={ () => this.handleReset()}
         	   size="12" maxLength="3"/>
-
         </div> 
     	);
   }
 
 handleFahInputChange(event){
-    //this method makes it so the element can update its own value
+    //this setState makes it so the element can update its own value
     this.setState({inputFahrenheitValue: event.target.value});
 
     if (event.target.value.trim() == ''){
@@ -53,7 +54,7 @@ handleFahInputChange(event){
   }
 
 handleCelciusInputChange(event){
-  //this method makes it so the element can update its own value
+  //this setState makes it so the element can update its own value
     this.setState({inputCelciusValue: event.target.value});
     if (event.target.value.trim() == '') {
       this.handleReset(event);
@@ -72,7 +73,7 @@ handleCelciusInputChange(event){
 
 handleReset(event){
  	this.setState({inputFahrenheitValue: '', 
-   				  inputCelciusValue: '' });
+   				       inputCelciusValue: '' });
  }
 
 }
