@@ -66,7 +66,7 @@ handleCelciusInputChange(event){
       }, 750);  
     }
     else {
-       var computedFah = TempConverterUtil.fahrenheitToCelsius(event.target.value);
+       var computedFah = TempConverterUtil.celsiusToFahrenheit(event.target.value);
        this.setState({inputFahrenheitValue: computedFah});
     }
   }  
